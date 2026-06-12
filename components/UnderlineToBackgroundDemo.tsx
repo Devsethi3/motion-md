@@ -17,12 +17,12 @@ export default function UnderlineToBackgroundDemo() {
     visible: { opacity: 1 },
   }
 
-  const words = "Weekly goodies delivered straight to your inbox —".split(" ")
+  const words = "Weekly goodies delivered straight to your inbox".split(" ")
 
   return (
     <div className="flex flex-col items-center justify-center">
       <motion.h2
-        className="p-12 text-xl text-[#0015ff] md:p-24"
+        className="p-12 text-xl text-foreground md:p-24"
         initial="hidden"
         animate="visible"
         variants={fadeInVariants}
@@ -38,7 +38,7 @@ export default function UnderlineToBackgroundDemo() {
         ))}
         <motion.span variants={wordVariants} className="inline-block">
           <UnderlineToBackground
-            targetTextColor="#f0f0f0"
+            targetTextColor="dark:#f0f0f0"
             className="cursor-pointer"
           >
             subscribe

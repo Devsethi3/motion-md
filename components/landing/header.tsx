@@ -61,7 +61,7 @@ export const Header = memo(() => {
             <Link href="/bookmarks" className="flex items-center gap-1">
               <HugeiconsIcon
                 icon={GithubIcon}
-                className="mr-2 size-4 fill-accent dark:fill-foreground"
+                className="mr-1.5 size-4 fill-accent dark:fill-foreground"
               />
               <span className="">GitHub</span>
             </Link>
@@ -70,7 +70,7 @@ export const Header = memo(() => {
             <Link href="/bookmarks" className="flex items-center gap-1">
               <HugeiconsIcon
                 icon={LayerIcon}
-                className="mr-2 size-4 fill-accent dark:fill-foreground"
+                className="mr-1.5 size-4 fill-accent dark:fill-foreground"
               />
               <span className="">Explore Library</span>
             </Link>
