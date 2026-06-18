@@ -44,7 +44,6 @@ const HeroSection = () => {
       >
         {headingWords.map((word, i) => (
           <>
-            {/* Clipboard icon after "High-quality" */}
             {i === 1 && (
               <HugeiconsIcon
                 key="icon"
@@ -63,7 +62,6 @@ const HeroSection = () => {
         ))}
       </motion.h1>
 
-      {/* ── Body ── */}
       <div className="mt-3 max-w-xl text-center text-sm leading-relaxed text-foreground/70">
         <p>
           Motion systems from leading product websites. Open any style for
@@ -118,7 +116,6 @@ const HeroSection = () => {
   )
 }
 
-// ── Small helper so each logo+label isn't repeated inline ──
 const InlineTool = ({
   src,
   alt,
