@@ -35,7 +35,6 @@ const HeroSection = () => {
 
   return (
     <div className="flex flex-col items-center justify-center py-32">
-      {/* ── Heading ── */}
       <motion.h1
         className="inline-flex flex-wrap items-center justify-center gap-x-1.5"
         initial="hidden"
