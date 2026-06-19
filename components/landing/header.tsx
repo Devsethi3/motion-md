@@ -8,7 +8,9 @@ import { BorderCross } from "@/components/ui/border-cross"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ClipboardIcon,
+  File02Icon,
   GithubIcon,
+  Globe02Icon,
   LayerIcon,
   UserQuestion01Icon,
 } from "@hugeicons/core-free-icons"
@@ -38,21 +40,27 @@ export const Header = memo(() => {
             <Link href="/" className="flex items-center">
               <HugeiconsIcon
                 icon={ClipboardIcon}
-                className="mr-1 size-4 fill-accent dark:fill-foreground"
+                className="mr-1 size-4 fill-accent dark:fill-accent-foreground/20"
               />
               motion.md format
             </Link>
           </Button>
           <Button className="" variant={"ghost"}>
-            <Link href="/">Websites</Link>
+            <Link href="/" className="flex items-center">
+              <HugeiconsIcon
+                icon={Globe02Icon}
+                className="mr-1 size-4 fill-accent dark:fill-accent-foreground/20"
+              />
+              Websites
+            </Link>{" "}
           </Button>
           <Button className="" variant={"ghost"}>
             <Link href="/" className="flex items-center">
               <HugeiconsIcon
-                icon={UserQuestion01Icon}
-                className="mr-1 size-4 fill-accent dark:fill-foreground"
+                icon={File02Icon}
+                className="mr-1 size-4 fill-accent/30 dark:fill-accent-foreground/20"
               />
-              Author
+              Docs
             </Link>{" "}
           </Button>
         </div>

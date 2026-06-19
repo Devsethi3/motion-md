@@ -34,7 +34,7 @@ const HeroSection = () => {
     "bg-linear-to-b from-foreground to-foreground/70 bg-clip-text text-2xl text-transparent dark:from-foreground dark:to-foreground/40"
 
   return (
-    <div className="flex flex-col items-center justify-center py-32">
+    <div className="flex flex-col items-center justify-center pt-32 pb-16">
       <motion.h1
         className="inline-flex flex-wrap items-center justify-center gap-x-1.5"
         initial="hidden"
@@ -47,7 +47,7 @@ const HeroSection = () => {
               <HugeiconsIcon
                 key="icon"
                 icon={ClipboardIcon}
-                className="inline-block size-5 shrink-0 translate-y-px fill-accent! align-middle dark:fill-foreground!"
+                className="inline-block size-5 shrink-0 translate-y-px fill-accent! align-middle dark:fill-accent-foreground/10!"
               />
             )}
             <motion.span
@@ -68,7 +68,7 @@ const HeroSection = () => {
           <span className="inline-flex items-center gap-0.5 align-middle">
             <HugeiconsIcon
               icon={ClipboardIcon}
-              className="size-4 shrink-0 fill-accent dark:fill-foreground"
+              className="size-4 shrink-0 fill-accent dark:fill-accent-foreground/10"
             />
             <span className="font-medium text-foreground underline">
               MOTION.md
