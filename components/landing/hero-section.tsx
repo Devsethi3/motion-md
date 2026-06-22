@@ -34,7 +34,7 @@ const HeroSection = () => {
     "bg-linear-to-b from-foreground to-foreground/70 bg-clip-text text-2xl text-transparent dark:from-foreground dark:to-foreground/40"
 
   return (
-    <div className="flex flex-col items-center justify-center pt-32 pb-16">
+    <div className="flex flex-col items-center justify-center pt-20">
       <motion.h1
         className="inline-flex flex-wrap items-center justify-center gap-x-1.5"
         initial="hidden"
@@ -42,7 +42,7 @@ const HeroSection = () => {
         variants={fadeInVariants}
       >
         {headingWords.map((word, i) => (
-          <>
+          <div key={i} className="inline-flex items-center gap-1">
             {i === 1 && (
               <HugeiconsIcon
                 key="icon"
@@ -57,7 +57,7 @@ const HeroSection = () => {
             >
               {word}
             </motion.span>
-          </>
+          </div>
         ))}
       </motion.h1>
 

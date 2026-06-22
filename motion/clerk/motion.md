@@ -1,4 +1,4 @@
-# MOTION.md — clerk.com Motion System
+# MOTION.md - clerk.com Motion System
 > Reverse-engineered from clerk.com (2026)
 > Drop into Cursor, Claude Code, v0, Lovable, or Codex for on-brand animations.
 

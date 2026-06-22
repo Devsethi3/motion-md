@@ -8,7 +8,7 @@ export default function Page() {
     <div className="mx-auto min-h-screen max-w-7xl overflow-hidden border-x px-4 lg:overflow-visible">
       <Header />
       <HeroSection />
-      <ShowcaseMarquee />
+      {/* <ShowcaseMarquee /> */}
      <MotionList />
     </div>
   )

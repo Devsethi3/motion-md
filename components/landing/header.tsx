@@ -10,7 +10,7 @@ import {
   ClipboardIcon,
   File02Icon,
   GithubIcon,
-  Globe02Icon,
+  EarthIcon,
   LayerIcon,
   UserQuestion01Icon,
 } from "@hugeicons/core-free-icons"
@@ -48,7 +48,7 @@ export const Header = memo(() => {
           <Button className="" variant={"ghost"}>
             <Link href="/" className="flex items-center">
               <HugeiconsIcon
-                icon={Globe02Icon}
+                icon={EarthIcon}
                 className="mr-1 size-4 fill-accent dark:fill-accent-foreground/20"
               />
               Websites
