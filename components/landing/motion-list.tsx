@@ -10,7 +10,7 @@ import {
 } from "@hugeicons/core-free-icons"
 import { useTheme } from "next-themes"
 import Link from "next/link"
-import { designs } from "@/lib/designs"
+import { motions } from "@/lib/motions"
 
 type Category = {
   label: string
@@ -56,7 +56,7 @@ const MotionList = () => {
               className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none"
             />
             <span className="shrink-0 text-xs text-muted-foreground/60 tabular-nums">
-              {designs.length} results
+              {motions.length} results
             </span>
           </div>
 
@@ -91,13 +91,13 @@ const MotionList = () => {
                 </tr>
               </thead>
               <tbody>
-                {designs.map((design, index) => (
+                {motions.map((motion, index) => (
                   // `contents` keeps Link out of the table's box layout —
                   // a <tr> can only be a direct child of <tbody>, so an <a>
                   // wrapper here would otherwise break column sizing.
                   <Link
-                    key={design.slug}
-                    href={`/${design.slug}/motion-md`}
+                    key={motion.slug}
+                    href={`/${motion.slug}/motion-md`}
                     className="contents"
                   >
                     <tr className="group border-b border-border/50 transition-colors hover:bg-secondary/30 cursor-pointer">
@@ -116,17 +116,17 @@ const MotionList = () => {
                             <img
                               src={
                                 resolvedTheme === "dark"
-                                  ? design.logoDark
-                                  : design.logoLight
+                                  ? motion.logoDark
+                                  : motion.logoLight
                               }
-                              alt={design.name}
+                              alt={motion.name}
                               width={16}
                               height={16}
                               className="size-4 rounded"
                             />
                           </span>
                           <span className="font-medium whitespace-nowrap text-foreground">
-                            {design.name}
+                            {motion.name}
                           </span>
                         </div>
                       </td>
@@ -134,13 +134,13 @@ const MotionList = () => {
                       {/* Description */}
                       <td className="py-3.5 pr-6 align-middle">
                         <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                          {design.description}
+                          {motion.description}
                         </p>
                       </td>
 
                       {/* Installs */}
                       <td className="hidden py-3.5 pr-4 text-right align-middle text-muted-foreground tabular-nums lg:table-cell">
-                        {design.installs}
+                        {motion.installs}
                       </td>
 
                       {/* Bookmarks */}
@@ -151,7 +151,7 @@ const MotionList = () => {
                             aria-hidden="true"
                             className="size-3.5 text-muted-foreground/40 transition-colors group-hover:text-muted-foreground"
                           />
-                          {design.bookmarks}
+                          {motion.bookmarks}
                         </span>
                       </td>
                     </tr>

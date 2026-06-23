@@ -1,5 +1,5 @@
 
-export interface Design {
+export interface Motion {
   name: string;
   description: string;
   installs: string;
@@ -11,7 +11,7 @@ export interface Design {
   motionDir: string;
 }
 
-export const designs: Design[] = [
+export const motions: Motion[] = [
   {
     name: "Figma",
     description:
@@ -135,7 +135,7 @@ export const designs: Design[] = [
   },
 ];
 
-export function getDesignBySlug(slug: string): Design | undefined {
-  return designs.find((d) => d.slug === slug);
+export function getMotionBySlug(slug: string): Motion | undefined {
+  return motions.find((d) => d.slug === slug);
 }
 

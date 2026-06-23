@@ -37,7 +37,7 @@ export const Header = memo(() => {
         </Link>{" "}
         <div className="flex items-center gap-2">
           <Button className="" variant={"ghost"}>
-            <Link href="/" className="flex items-center">
+            <Link href="/motion-md-format" className="flex items-center">
               <HugeiconsIcon
                 icon={ClipboardIcon}
                 className="mr-1 size-4 fill-accent dark:fill-accent-foreground/20"

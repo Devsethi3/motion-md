@@ -241,3 +241,14 @@
     @apply font-sans;
     }
 }
+
+.shiki-wrapper .shiki,
+.shiki-wrapper .shiki span {
+  color: var(--shiki-light);
+  background-color: transparent;
+}
+
+.dark .shiki-wrapper .shiki,
+.dark .shiki-wrapper .shiki span {
+  color: var(--shiki-dark);
+}

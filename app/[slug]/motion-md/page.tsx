@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
-import { getDesignBySlug } from "@/lib/designs";
+import { getMotionBySlug } from "@/lib/motions";
 import { BorderCross } from "@/components/ui/border-cross";
 import { FullWidthDivider } from "@/components/ui/full-width-divider";
 import { Header } from "@/components/landing/header";
@@ -14,10 +14,11 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowTurnBackwardIcon } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { CopyButton } from "@/components/ui/copy-button";
 
 export async function generateStaticParams() {
-  const { designs } = await import("@/lib/designs");
-  return designs.map((d) => ({
+  const { motions } = await import("@/lib/motions");
+  return motions.map((d) => ({
     slug: d.slug,
   }));
 }
@@ -28,7 +29,7 @@ export default async function MotionMdPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const design = getDesignBySlug(slug);
+  const design = getMotionBySlug(slug);
 
   if (!design) {
     notFound();
