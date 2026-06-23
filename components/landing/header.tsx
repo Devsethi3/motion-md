@@ -75,7 +75,7 @@ export const Header = memo(() => {
             </Link>
           </RaisedButton>
           <RaisedButton variant={"default"} size="sm">
-            <Link href="/bookmarks" className="flex items-center gap-1">
+            <Link href="/bookmarks" className="flex items-center gap-1 mb-0.5">
               <HugeiconsIcon
                 icon={LayerIcon}
                 className="mr-1.5 size-4 fill-accent dark:fill-foreground"

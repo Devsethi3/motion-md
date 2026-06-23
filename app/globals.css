@@ -69,6 +69,7 @@
     }
 }
 
+
 :root {
   --background: oklch(0.9818 0.0054 95.0986);
   --foreground: oklch(0.3438 0.0269 95.7226);
@@ -240,15 +241,4 @@
   html {
     @apply font-sans;
     }
-}
-
-.shiki-wrapper .shiki,
-.shiki-wrapper .shiki span {
-  color: var(--shiki-light);
-  background-color: transparent;
-}
-
-.dark .shiki-wrapper .shiki,
-.dark .shiki-wrapper .shiki span {
-  color: var(--shiki-dark);
 }
