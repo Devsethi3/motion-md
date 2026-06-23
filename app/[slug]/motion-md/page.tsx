@@ -4,8 +4,20 @@ import path from "path"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
+import {
+  AlertCircleIcon,
+  ArrowTurnBackwardIcon,
+} from "@hugeicons/core-free-icons"
+import { CodeBlock, CodeBlockCode } from "@/components/ui/code-block"
+import { Button } from "@/components/ui/button"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { ArrowTurnBackwardIcon } from "@hugeicons/core-free-icons"
+import {
+  CopyIcon,
+  Bookmark01Icon,
+  Download02Icon,
+  BoxIcon,
+  CubeIcon,
+} from "@hugeicons/core-free-icons"
 
 import { getMotionBySlug } from "@/lib/motions"
 import { BorderCross } from "@/components/ui/border-cross"
@@ -14,7 +26,6 @@ import { Header } from "@/components/landing/header"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { CopyButton } from "@/components/ui/copy-button"
-import { MarkdownContent } from "@/components/markdown/markdown-content"
 import {
   Tabs,
   TabsContent,
@@ -74,7 +85,7 @@ export default async function MotionMdPage({
           Back to Home
         </Link>
 
-        <section className="border-b border-border/70 pb-6">
+        <section className="relative pb-6">
           <div className="flex items-start gap-4">
             <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border bg-background">
               <Image
@@ -103,6 +114,101 @@ export default async function MotionMdPage({
             </div>
           </div>
         </section>
+
+        <div className="grid gap-6 lg:grid-cols-[1.3fr_520px]">
+          {/* LEFT */}
+         <div>
+            <h2 className="mb-2 text-foreground">Usage</h2>
+            <div className="mb-4">
+              <div className="relative overflow-hidden rounded-xl border border-border bg-card">
+                <div className="flex items-center justify-between border-b border-border bg-muted/40 px-4 py-2">
+                  <span className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
+                    bash
+                  </span>
+                  <CopyButton
+                    text="npx getdesign@latest add bmw-m"
+                    label="Copy"
+                    copiedLabel="Copied!"
+                    className="h-8 px-2 text-xs"
+                  />
+                </div>
+                <div className="p-4">
+                  <CodeBlock className="">
+                    <CodeBlockCode
+                      code="npx getdesign@latest add bmw-m"
+                      language="bash"
+                    />
+                  </CodeBlock>
+                </div>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Run this command from your project root, then ask your AI
+              assistant to use DESIGN.md for UI work.
+            </p>
+          </div>
+
+          {/* RIGHT */}
+          <div>
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-3 mt-7">
+              <div className="rounded-lg bg-muted border flex items-center justify-between px-4 py-3">
+                <div className="text-xs uppercase">
+                  Installs
+                </div>
+                <div className="text-sm">
+                  3.7K
+                </div>
+              </div>
+
+              <div className="rounded-lg bg-muted border flex items-center justify-between px-4 py-3">
+                <div className="text-xs uppercase">
+                  Bookmarked
+                </div>
+                <div className="text-sm">
+                  366
+                </div>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              <Button
+                variant="outline"
+                size='lg'
+              >
+                <HugeiconsIcon icon={Bookmark01Icon} className="size-4" /> SAVE
+              </Button>
+
+              <Button
+                variant="outline"
+                size='lg'
+              >
+                <HugeiconsIcon icon={Download02Icon} className="size-4" />{" "}
+                Download DESIGN.md
+              </Button>
+            </div>
+
+            {/* CTA */}
+            {/* <button className="mt-3 flex h-14 w-full items-center justify-center gap-3 rounded-lg bg-[#F6B01A] font-medium text-black transition hover:opacity-90">
+              <HugeiconsIcon icon={BoxIcon} className="size-5" /> Get the full
+              website starter kit
+              <span>→</span>
+            </button> */}
+
+            {/* Disclaimer */}
+          </div>
+            <div className="mt-5 flex gap-2 text-xs leading-relaxed text-zinc-500">
+              <span className="mt-[2px]">✦</span>
+
+              <p>
+                Independent analysis of publicly observable patterns, curated as
+                a starting point for inspiration. Not affiliated with or
+                endorsed by BMW M; BMW M and its logo are trademarks of their
+                respective owner.
+              </p>
+            </div>
+        </div>
 
         <Tabs defaultValue="markdown" className="mt-8" variant="segment">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
