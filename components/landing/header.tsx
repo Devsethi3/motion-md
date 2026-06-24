@@ -3,7 +3,6 @@ import { memo, useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { useScroll } from "@/hooks/use-scroll"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
 import { FullWidthDivider } from "@/components/ui/full-width-divider"
 import { BorderCross } from "@/components/ui/border-cross"
 import { HugeiconsIcon } from "@hugeicons/react"
@@ -28,7 +27,7 @@ const navLinks = [
     label: "motion.md format",
   },
   { href: "/", icon: EarthIcon, label: "Websites" },
-  { href: "/", icon: File02Icon, label: "Docs" },
+  { href: "/docs", icon: File02Icon, label: "Docs" },
 ]
 
 export const Header = memo(() => {
