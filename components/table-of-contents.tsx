@@ -45,7 +45,7 @@ const tableOfContentsStyles = {
   itemActive: "text-foreground",
   itemTrail: "text-foreground",
   itemIdle: "text-muted-foreground/60 hover:text-muted-foreground",
-  mobileHeader: "border-b bg-background/95 backdrop-blur-lg transition-all",
+  mobileHeader: "border mt-2 bg-background/95 backdrop-blur-lg rounded-lg transition-all",
   mobileHeaderOpen: "shadow-sm border-border rounded-xl border",
   mobileButton:
     "flex h-12 w-full items-center gap-2.5 px-4 py-2.5 text-start text-sm font-normal text-muted-foreground [&_svg]:size-4",
@@ -608,7 +608,7 @@ function TableOfContentsMobile({
         open={open}
         onOpenChange={setOpen}
         data-toc-mobile=""
-        className={cn("sticky top-0 z-10 lg:hidden", className)}
+        className={cn("sticky top-3 z-10 lg:hidden", className)}
         {...props}
       >
         <TableOfContentsMobileContent

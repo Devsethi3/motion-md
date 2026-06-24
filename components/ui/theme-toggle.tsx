@@ -31,7 +31,7 @@ export default function ThemeToggle() {
         aria-label="Theme Toggle"
         onClick={handleThemeToggleClick}
       >
-        <HugeiconsIcon icon={LayerMask01Icon} className="-rotate-40  " />
+        <HugeiconsIcon icon={LayerMask01Icon} className="-rotate-40" />
         {/* <HugeiconsIcon icon={LayerMask01Icon} className="hidden [html.dark_&]:block -rotate-40  " /> */}
         {/* <SunMediumIcon className="hidden [html.light_&]:block" /> */}
       </Button>

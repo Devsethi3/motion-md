@@ -41,7 +41,7 @@ const MotionList = () => {
         <BorderCross className="-right-4 bottom-0 translate-x-1/2 translate-y-1/2" />
       </div>
 
-      <div className="mx-auto my-20 w-full max-w-7xl px-4">
+      <div className="mx-auto my-20 w-full max-w-7xl lg:px-4 px-0">
         <main className="flex w-full flex-col py-8">
           {/* Search bar */}
           <div className="flex w-full items-center gap-2.5 border-b bg-background/80 pb-3 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60">

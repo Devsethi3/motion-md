@@ -5,21 +5,20 @@ import { ClipboardIcon } from "@hugeicons/core-free-icons"
 import { Source, SourceContent, SourceTrigger } from "../ui/source"
 import { InlineTool } from "../ui/inline-tool"
 import { useTheme } from "next-themes"
+import BounceSmileyAnimation from "../ui/bounce-smiley-animation"
 
 export function MotionMdFormatHero() {
   const { resolvedTheme } = useTheme()
 
   return (
-    <section className="relative pb-8">
+    <section className="relative flex items-center justify-between pb-8">
       <div className="max-w-3xl">
         <div className="inline-flex items-center gap-2">
-            <HugeiconsIcon
-              icon={ClipboardIcon}
-              className="size-5 fill-accent dark:fill-accent-foreground/20"
-            />
-          <span className="text-xl">
-            MOTION.md Format Specification
-          </span>
+          <HugeiconsIcon
+            icon={ClipboardIcon}
+            className="size-5 fill-accent dark:fill-accent-foreground/20"
+          />
+          <span className="text-xl">MOTION.md Format Specification</span>
         </div>
         <p className="mt-2 text-base leading-relaxed text-muted-foreground">
           A human-and-AI-readable markdown specification for describing a
@@ -44,15 +43,18 @@ export function MotionMdFormatHero() {
           <InlineTool src="/claude.svg" alt="Claude" size={14} label="Claude" />
           <InlineTool
             src={
-              resolvedTheme === "dark"
-                ? "/codex_dark.svg"
-                : "/codex_light.svg"
+              resolvedTheme === "dark" ? "/codex_dark.svg" : "/codex_light.svg"
             }
             alt="Codex"
             size={14}
             label="Codex"
           />
-          <InlineTool src="/lovable.svg" alt="Lovable" size={12} label="Lovable" />
+          <InlineTool
+            src="/lovable.svg"
+            alt="Lovable"
+            size={12}
+            label="Lovable"
+          />
           {", "}Windsurf, v0, and more.
         </div>
 
@@ -83,6 +85,9 @@ export function MotionMdFormatHero() {
           </Source>
           {", and dozens more."}
         </p>
+      </div>
+      <div className='size-55 mr-20 hidden lg:block'>
+        <BounceSmileyAnimation />
       </div>
     </section>
   )

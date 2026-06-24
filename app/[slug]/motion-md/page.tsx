@@ -51,6 +51,7 @@ export default async function MotionMdPage({
         <BorderCross className="bottom-0 -left-4 -translate-x-1/2 translate-y-1/2" />
         <BorderCross className="-right-4 bottom-0 translate-x-1/2 translate-y-1/2" />
       </div>
+      
 
       <div className="py-4 pb-10">
         <MotionMdHeaderActions />
