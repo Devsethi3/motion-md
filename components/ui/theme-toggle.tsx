@@ -5,6 +5,8 @@ import { useTheme } from "next-themes"
 
 import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { Button } from "@/components/ui/button"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { LayerMask01Icon } from "@hugeicons/core-free-icons"
 
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -29,8 +31,9 @@ export default function ThemeToggle() {
         aria-label="Theme Toggle"
         onClick={handleThemeToggleClick}
       >
-        <MoonIcon className="hidden [html.dark_&]:block" />
-        <SunMediumIcon className="hidden [html.light_&]:block" />
+        <HugeiconsIcon icon={LayerMask01Icon} className="-rotate-40  " />
+        {/* <HugeiconsIcon icon={LayerMask01Icon} className="hidden [html.dark_&]:block -rotate-40  " /> */}
+        {/* <SunMediumIcon className="hidden [html.light_&]:block" /> */}
       </Button>
     </div>
   )

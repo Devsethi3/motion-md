@@ -1,8 +1,4 @@
 # MOTION.md - figma.com Motion System
-> Reverse-engineered from figma.com (2026)
-> Drop into Cursor, Claude Code, v0, Lovable, or Codex for on-brand animations.
-
----
 
 ## Design Philosophy
 

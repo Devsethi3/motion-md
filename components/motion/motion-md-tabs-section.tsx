@@ -89,9 +89,37 @@ export function MotionMdTabsSection({
       </TabsContent>
 
       <TabsContent value="preview" className="mt-6">
-        <Markdown className="prose prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-h4:text-base prose-h5:text-sm prose-h6:text-xs dark:prose-invert">
-          {content}
-        </Markdown>
+        <section className="overflow-hidden rounded-2xl border bg-muted/50 shadow-sm">
+          <div className="rounded-2xl m-2 border bg-background shadow-sm">
+            <div className="border-b border-border/70 px-5 py-3 sm:px-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground">Preview</p>
+                  <p className="text-xs text-muted-foreground">
+                    Rendered markdown preview
+                  </p>
+                </div>
+                  {content ? (
+                  <div className="flex items-center gap-2">
+                    <CopyButton
+                      className="relative gap-1.5 pr-2.5 pl-2"
+                      variant="outline"
+                      size="default"
+                      text={content}
+                    >
+                      Copy Markdown
+                    </CopyButton>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+            <div className="px-5 py-6 sm:px-8 sm:py-8">
+              <div className="mx-auto">
+                <Markdown>{content}</Markdown>
+              </div>
+            </div>
+          </div>
+        </section>
       </TabsContent>
     </Tabs>
   )

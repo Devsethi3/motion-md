@@ -104,7 +104,7 @@ export function MotionMdInfoSection({ motion }: { motion: Motion }) {
             <p>
               Independent analysis of publicly observable patterns, curated as
               a starting point for inspiration. Not affiliated with or
-              endorsed by BMW M
+              endorsed by Figma
             </p>
           </div>
         </div>
