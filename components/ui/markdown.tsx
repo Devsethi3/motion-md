@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm"
 import { CodeBlock, CodeBlockCode } from "./code-block"
 
 export type MarkdownProps = {
-  children: string
+  children: string | null
   id?: string
   className?: string
   components?: Partial<Components>
@@ -89,7 +89,9 @@ function MarkdownComponent({
 }: MarkdownProps) {
   const generatedId = useId()
   const blockId = id ?? generatedId
-  const blocks = useMemo(() => parseMarkdownIntoBlocks(children), [children])
+  const blocks = useMemo(() => parseMarkdownIntoBlocks(children ?? ""), [children])
+
+  if (!children) return null
 
   return (
     <div className={className}>

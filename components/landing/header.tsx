@@ -17,6 +17,7 @@ import {
 import { Button } from "../ui/button"
 import { RaisedButton } from "../ui/raised-button"
 import { Logo } from "../ui/logo"
+import ThemeToggle from "../ui/theme-toggle"
 
 export const Header = memo(() => {
   const scrolled = useScroll(10)
@@ -65,6 +66,7 @@ export const Header = memo(() => {
           </Button>
         </div>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <RaisedButton variant={"default"} color="#414141" size="sm">
             <Link href="/bookmarks" className="flex items-center gap-1">
               <HugeiconsIcon

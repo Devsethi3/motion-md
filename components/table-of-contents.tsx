@@ -45,12 +45,12 @@ const tableOfContentsStyles = {
   itemActive: "text-foreground",
   itemTrail: "text-foreground",
   itemIdle: "text-muted-foreground/60 hover:text-muted-foreground",
-  mobileHeader: "border-b bg-background/80 backdrop-blur-sm transition-colors",
-  mobileHeaderOpen: "shadow-lg",
+  mobileHeader: "border-b bg-background/90 backdrop-blur-md transition-all",
+  mobileHeaderOpen: "shadow-lg border-border",
   mobileButton:
-    "flex h-11 w-full items-center gap-2.5 px-4 py-2.5 text-start text-sm font-normal text-muted-foreground [&_svg]:size-4",
-  mobileScrollArea: "max-h-[50vh] px-4 pb-4",
-  mobileList: "pt-2 [&_a]:w-full [&_a]:py-2",
+    "flex h-12 w-full items-center gap-2.5 px-4 py-2.5 text-start text-sm font-normal text-muted-foreground [&_svg]:size-4",
+  mobileScrollArea: "max-h-[60dvh] px-4 pb-4",
+  mobileList: "pt-2 [&_a]:w-full [&_a]:py-2.5",
 }
 
 function useTableOfContentsContext() {
