@@ -3,34 +3,114 @@
 import { MotionMdFormatSection } from "./motion-md-format-section"
 import { MotionMdFormatCodeDisplay } from "./motion-md-format-code-display"
 import { CopyButton } from "@/components/copy-button"
+import { InlineTool } from "../ui/inline-tool"
+import { useTheme } from "next-themes"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ClipboardIcon } from "@hugeicons/core-free-icons"
+import { Source, SourceContent, SourceTrigger } from "../ui/source"
+import { CodeBlock, CodeBlockCode } from "@/components/ui/code-block"
 
 export function MotionMdFormatArticle() {
+  const { resolvedTheme } = useTheme()
   return (
     <article className="min-w-0">
       {/* 1. What is MOTION.md? */}
       <MotionMdFormatSection id="what-is-motion-md" title="What is MOTION.md?">
         <p className="text-base leading-relaxed text-foreground/85">
-          The <span>MOTION.md</span> concept is a plain markdown file that
-          describes a brand&rsquo;s animation patterns - durations, easings,
-          keyframes, hover states, entrance/exit sequences, scroll reveals, and
-          transitions - and hands it to an AI agent so it can generate
-          consistent motion. No Framer Motion plugin. No JSON schema. No
-          Storybook export. Just a markdown file the agent reads before it
-          writes a single line of animation code.
+          The MOTION.md concept is a plain markdown file that describes a
+          brand&rsquo;s animation patterns - durations, easings, keyframes,
+          hover states, entrance/exit sequences, scroll reveals, and transitions
+          - and hands it to an AI agent so it can generate consistent motion. No
+          Framer Motion plugin. No JSON schema. No Storybook export. Just a
+          markdown file the agent reads before it writes a single line of
+          animation code.
         </p>
 
         <p className="text-base leading-relaxed text-foreground/85">
-          We built motion-kit on top of that idea. This site is the web app
-          version - you can browse, preview, and copy any MOTION.md file
-          without cloning a repository.
+          Motion systems from leading product websites. Open any style for
+          animations, transitions and a{" "}
+          <span className="inline-flex items-center gap-0.5 align-middle">
+            <HugeiconsIcon
+              icon={ClipboardIcon}
+              className="size-4 shrink-0 fill-accent dark:fill-accent-foreground/10"
+            />
+            <span className="font-medium text-foreground underline">
+              MOTION.md
+            </span>
+          </span>{" "}
+          you can drop straight into{" "}
+          <InlineTool
+            src={
+              resolvedTheme === "dark"
+                ? "/cursor_dark.svg"
+                : "/cursor_light.svg"
+            }
+            alt="Cursor"
+            size={12}
+            label="Cursor"
+          />
+          {", "}
+          <InlineTool
+            src="/claude.svg"
+            alt="Claude"
+            size={14}
+            label="Claude Code"
+          />
+          {", "}
+          <InlineTool
+            src={
+              resolvedTheme === "dark" ? "/codex_dark.svg" : "/codex_light.svg"
+            }
+            alt="Codex"
+            size={14}
+            label="Codex"
+          />
+          {", "}
+          <InlineTool
+            src="/lovable.svg"
+            alt="Lovable"
+            size={12}
+            label="Lovable"
+          />
+          {", v0, or Windsurf."}
         </p>
 
         <p className="text-base leading-relaxed text-foreground/85">
-          Every MOTION.md in this collection is reverse-engineered from
-          publicly visible patterns on production websites. These are not
-          official design systems from the listed companies - they are curated
-          starting points inspired by observable animation patterns so AI agents
-          can replicate the <em>feel</em> of a brand, not just its colors.
+          We built motion-md on top of that idea. This site is the web app
+          version - you can browse, preview, and copy any MOTION.md file without
+          cloning a repository.
+        </p>
+
+        <p className="text-base leading-relaxed text-foreground/85">
+          Every MOTION.md in this collection is reverse-engineered from publicly
+          visible patterns on production websites like{" "}
+          <Source href="https://www.figma.com">
+            <SourceTrigger showFavicon />
+            <SourceContent
+              title="Figma"
+              description="Figma is the leading collaborative design tool for building meaningful products. Seamlessly design, prototype, develop, and collect feedback in a single platform."
+            />
+          </Source>
+          ,{" "}
+          <Source href="https://contralabs.com/">
+            <SourceTrigger showFavicon />
+            <SourceContent
+              title="Contralabs"
+              description="Contralabs is a company focused on creating innovative solutions for the future."
+            />
+          </Source>
+          ,{" "}
+          <Source href="https://apple.com/">
+            <SourceTrigger showFavicon />
+            <SourceContent
+              title="Apple"
+              description="Apple designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide."
+            />
+          </Source>
+          , and dozens more. These are not official design systems from the
+          listed companies - they are curated starting points inspired by
+          observable animation patterns so AI agents can replicate the{" "}
+          <em>feel</em> of a brand, not just its colors.
         </p>
       </MotionMdFormatSection>
 
@@ -49,12 +129,34 @@ export function MotionMdFormatArticle() {
 
         <p className="text-base leading-relaxed text-foreground/85">
           The reason is simple. The agent&rsquo;s idea of &ldquo;good
-          motion&rdquo; is an average of averages. It has no clue why Figma
-          uses a soft 0.25, 1, 0.5, 1 cubic-bezier instead of a sharp expo. It
-          doesn&rsquo;t know that Railway keeps all its durations under 250ms
-          to feel like a terminal, or that Clerk uses a 0.96 scale on press
-          rather than a translateY. Even if it did know, cramming all of that
-          into a prompt is borderline impossible.
+          motion&rdquo; is an average of averages. It has no clue why{" "}
+          <Source href="https://www.figma.com">
+            <SourceTrigger label="Figma" />
+            <SourceContent
+              title="Figma"
+              description="Figma is the leading collaborative design tool for building meaningful products."
+            />
+          </Source>{" "}
+          uses a soft <code className="text-sm">0.25, 1, 0.5, 1</code> ease-out
+          instead of a sharp expo. It doesn&rsquo;t know that{" "}
+          <Source href="https://railway.app">
+            <SourceTrigger label="Railway" />
+            <SourceContent
+              title="Railway"
+              description="Railway is a deployment platform that makes it easy to ship applications with infrastructure provisioning."
+            />
+          </Source>{" "}
+          keeps all its durations under 250ms to feel like a terminal, or that{" "}
+          <Source href="https://clerk.com">
+            <SourceTrigger label="Clerk" />
+            <SourceContent
+              title="Clerk"
+              description="Clerk is a complete suite of embeddable UIs, flexible APIs, and admin dashboards to authenticate and manage users."
+            />
+          </Source>{" "}
+          uses a <code className="text-sm">0.96</code> scale on press rather
+          than a <code className="text-sm">translateY</code>. Even if it did
+          know, cramming all of that into a prompt is borderline impossible.
         </p>
 
         <p className="text-base leading-relaxed text-foreground/85">
@@ -75,8 +177,8 @@ export function MotionMdFormatArticle() {
               Screenshot a site, paste it, say &ldquo;make it move like
               this.&rdquo;
             </span>{" "}
-            The agent copies the keyframe names but misses the philosophy
-            behind the easing curve.
+            The agent copies the keyframe names but misses the philosophy behind
+            the easing curve.
           </li>
         </ul>
 
@@ -86,10 +188,7 @@ export function MotionMdFormatArticle() {
       </MotionMdFormatSection>
 
       {/* 3. The fix */}
-      <MotionMdFormatSection
-        id="the-fix"
-        title="The fix: MOTION.md"
-      >
+      <MotionMdFormatSection id="the-fix" title="The fix: MOTION.md">
         <p className="text-base leading-relaxed text-foreground/85">
           A MOTION.md file describes a brand&rsquo;s motion language
           semantically. It is not a CSS dump. Not a Framer Motion export. Not a
@@ -124,9 +223,7 @@ export function MotionMdFormatArticle() {
             tells you why.
           </li>
           <li>
-            <span className="font-semibold text-foreground">
-              Easing scale
-            </span>{" "}
+            <span className="font-semibold text-foreground">Easing scale</span>{" "}
             defines every curve - primary ease-out, sharp entrances, gentle
             bounce, linear progress. Each one has a use case attached, not just
             a bezier value.
@@ -160,16 +257,14 @@ export function MotionMdFormatArticle() {
               Reduced motion
             </span>{" "}
             - the mandatory{" "}
-            <code className="text-sm">
-              prefers-reduced-motion
-            </code>{" "}
-            media query block, because motion accessibility is not optional.
+            <code className="text-sm">prefers-reduced-motion</code> media query
+            block, because motion accessibility is not optional.
           </li>
           <li>
             <span className="font-semibold text-foreground">
               Framer Motion / React equivalents
             </span>{" "}
-            - spring configs, motion variants, animate-presence wrappers for
+            - spring configs, motion variants, AnimatePresence wrappers for
             teams using React animation libraries.
           </li>
         </ul>
@@ -183,10 +278,7 @@ export function MotionMdFormatArticle() {
       </MotionMdFormatSection>
 
       {/* 4. Why markdown */}
-      <MotionMdFormatSection
-        id="why-markdown"
-        title="Why markdown?"
-      >
+      <MotionMdFormatSection id="why-markdown" title="Why markdown?">
         <p className="text-base leading-relaxed text-foreground/85">
           Because it is the language AI agents speak best. They can read JSON
           tokens but can&rsquo;t interpret why one easing curve is chosen over
@@ -201,17 +293,32 @@ export function MotionMdFormatArticle() {
           Drop a MOTION.md file in your project root and tell your agent
           &ldquo;use MOTION.md as reference before you write any
           animation.&rdquo; From that point on, whether you&rsquo;re working
-          with Claude Code, Cursor, or Windsurf, the agent knows which easing
-          curve, which duration, which stagger pattern to reach for. You
-          don&rsquo;t have to repeat yourself in every prompt.
+          with{" "}
+          <InlineTool
+            src={
+              resolvedTheme === "dark"
+                ? "/cursor_dark.svg"
+                : "/cursor_light.svg"
+            }
+            alt="Cursor"
+            size={12}
+            label="Cursor"
+          />
+          ,{" "}
+          <InlineTool
+            src="/claude.svg"
+            alt="Claude"
+            size={14}
+            label="Claude Code"
+          />
+          , or Windsurf, the agent knows which easing curve, which duration,
+          which stagger pattern to reach for. You don&rsquo;t have to repeat
+          yourself in every prompt.
         </p>
       </MotionMdFormatSection>
 
       {/* 5. Why a collection */}
-      <MotionMdFormatSection
-        id="why-a-collection"
-        title="Why a collection?"
-      >
+      <MotionMdFormatSection id="why-a-collection" title="Why a collection?">
         <p className="text-base leading-relaxed text-foreground/85">
           Most teams don&rsquo;t write their own MOTION.md from scratch. Most
           teams say &ldquo;animate it like Linear,&rdquo; &ldquo;give it that
@@ -220,12 +327,42 @@ export function MotionMdFormatArticle() {
         </p>
 
         <p className="text-base leading-relaxed text-foreground/85">
-          motion-kit collects those starting points. Motion files based on
-          Figma, Linear, Vercel, Clerk, Railway, Branch, and dozens more, all
-          in the same format, all comparable. Pick one, drop it into your
-          project, tell your agent &ldquo;use this file as reference.&rdquo;
-          Building on top of that language with your own transitions and
-          component animations is up to you.
+          motion-md collects those starting points. Motion files based on{" "}
+          <Source href="https://www.figma.com">
+            <SourceTrigger showFavicon />
+            <SourceContent
+              title="Figma"
+              description="Figma is the leading collaborative design tool for building meaningful products."
+            />
+          </Source>
+          ,{" "}
+          <Source href="https://clerk.com">
+            <SourceTrigger showFavicon />
+            <SourceContent
+              title="Clerk"
+              description="Clerk is a complete suite of embeddable UIs, flexible APIs, and admin dashboards to authenticate and manage users."
+            />
+          </Source>
+          ,{" "}
+          <Source href="https://railway.app">
+            <SourceTrigger showFavicon />
+            <SourceContent
+              title="Railway"
+              description="Railway is a deployment platform that makes it easy to ship applications with infrastructure provisioning."
+            />
+          </Source>
+          ,{" "}
+          <Source href="https://branch.io">
+            <SourceTrigger showFavicon />
+            <SourceContent
+              title="Branch"
+              description="Branch provides mobile linking and attribution solutions for growth and deep linking."
+            />
+          </Source>
+          , and dozens more, all in the same format, all comparable. Pick one,
+          drop it into your project, tell your agent &ldquo;use this file as
+          reference.&rdquo; Building on top of that language with your own
+          transitions and component animations is up to you.
         </p>
 
         <p className="text-base leading-relaxed text-foreground/85">
@@ -250,8 +387,8 @@ export function MotionMdFormatArticle() {
             <span className="font-semibold text-foreground">
               You can&rsquo;t drop it in and call the animation done.
             </span>{" "}
-            It is a dictionary. The implementation still needs writing. There
-            is no compiled code inside, just rules. It describes what a button
+            It is a dictionary. The implementation still needs writing. There is
+            no compiled code inside, just rules. It describes what a button
             hover looks like; you or your agent still build the animation.
           </li>
           <li>
@@ -259,9 +396,9 @@ export function MotionMdFormatArticle() {
               It is not a motion design portfolio export.
             </span>{" "}
             Motion portfolios are written for humans and speak too loosely for
-            agents to act on (&ldquo;springy and delightful&rdquo;). A
-            MOTION.md has to be specific enough for the agent to write an
-            animation on its next turn.
+            agents to act on (&ldquo;springy and delightful&rdquo;). A MOTION.md
+            has to be specific enough for the agent to write an animation on its
+            next turn.
           </li>
           <li>
             <span className="font-semibold text-foreground">
@@ -284,10 +421,9 @@ export function MotionMdFormatArticle() {
       <MotionMdFormatSection id="mental-model" title="Mental model">
         <p className="text-base leading-relaxed text-foreground/85">
           You used to hire a motion designer and say &ldquo;you know
-          Figma&rsquo;s interactions, right? Give me that feel.&rdquo; It
-          worked because the designer already carried the reference in their
-          head. That shared context sat underneath every conversation you had
-          with them.
+          Figma&rsquo;s interactions, right? Give me that feel.&rdquo; It worked
+          because the designer already carried the reference in their head. That
+          shared context sat underneath every conversation you had with them.
         </p>
 
         <p className="text-base leading-relaxed text-foreground/85">
@@ -298,10 +434,10 @@ export function MotionMdFormatArticle() {
         </p>
 
         <p className="text-base leading-relaxed text-foreground/85">
-          motion-kit is not an &ldquo;animation asset site.&rdquo; It is closer
+          motion-md is not an &ldquo;animation asset site.&rdquo; It is closer
           to an experiment in how motion languages get shared when the
-          &ldquo;designer&rdquo; is an AI. The MOTION.md files are the format.
-          The site is a collection that makes that format concrete.
+          &ldquo;designer&rdquo; is an AI agent. The MOTION.md files are the
+          format. The site is a collection that makes that format concrete.
         </p>
       </MotionMdFormatSection>
 
@@ -323,44 +459,44 @@ export function MotionMdFormatArticle() {
         {/* 8.1 */}
         <h3
           id="structure-title-attribution"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           1. Title and attribution
         </h3>
         <p className="text-base leading-relaxed text-foreground/85">
           The very top of the file is a markdown heading with the brand name,
-          followed by a blockquote attribution that tells the reader (and the
-          agent) exactly what this file is.
+          followed by a blockquote attribution that tells the reader - and the
+          agent - exactly what this file is.
         </p>
 
         <MotionMdFormatCodeDisplay
           label="MOTION.md header"
-          code={`# MOTION.md — figma.com Motion System
+          code={`# MOTION.md - figma.com Motion System
 > Reverse-engineered from figma.com (2026)
 > Drop into Cursor, Claude Code, v0, Lovable, or Codex for on-brand animations.`}
-          copyText={`# MOTION.md — figma.com Motion System
+          copyText={`# MOTION.md - figma.com Motion System
 > Reverse-engineered from figma.com (2026)
 > Drop into Cursor, Claude Code, v0, Lovable, or Codex for on-brand animations.`}
         />
 
         <p className="text-base leading-relaxed text-foreground/85">
-          The attribution block is what tells downstream tools what this file
-          is for. It&rsquo;s not metadata - it&rsquo;s context the agent reads
+          The attribution block is what tells downstream tools what this file is
+          for. It&rsquo;s not metadata - it&rsquo;s context the agent reads
           before it writes a single line of animation code.
         </p>
 
         {/* 8.2 */}
         <h3
           id="structure-philosophy"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           2. Design philosophy
         </h3>
         <p className="text-base leading-relaxed text-foreground/85">
-          This is the atmosphere statement - the brand&rsquo;s motion
-          philosophy in plain English. What carries the voltage? What role does
-          speed play? What does the timing communicate? It closes with a bullet
-          list of core principles.
+          This is the atmosphere statement - the brand&rsquo;s motion philosophy
+          in plain English. What carries the voltage? What role does speed play?
+          What does the timing communicate? It closes with a bullet list of core
+          principles.
         </p>
 
         <MotionMdFormatCodeDisplay
@@ -368,27 +504,27 @@ export function MotionMdFormatArticle() {
           code={`## Design Philosophy
 
 Figma's motion is **light, airy, and deceptively simple**. It's a white-background
-product that uses motion the same way a good designer uses whitespace — intentionally
+product that uses motion the same way a good designer uses whitespace - intentionally
 and sparingly. Nothing fights for attention. Every animation defers to content.
 
 Core principles:
-- **White-first** — all motion reads against white or near-white.
-- **Restraint is the feature** — durations are short, transforms are small.
-- **Horizontal slide transitions** — tab/product switching slides left/right.
-- **Color transitions carry weight** — hover states shift background fill, not opacity.`}
+- **White-first** - all motion reads against white or near-white.
+- **Restraint is the feature** - durations are short, transforms are small.
+- **Horizontal slide transitions** - tab/product switching slides left/right.
+- **Color transitions carry weight** - hover states shift background fill, not opacity.`}
         />
 
         <p className="text-base leading-relaxed text-foreground/85">
           This section answers &ldquo;why does it move like this?&rdquo; The
-          rest of the file answers &ldquo;what are the exact values?&rdquo;
-          This one answers &ldquo;why.&rdquo; Without it, the agent has the
-          specs but not the intent.
+          rest of the file answers &ldquo;what are the exact values?&rdquo; This
+          one answers &ldquo;why.&rdquo; Without it, the agent has the specs but
+          not the intent.
         </p>
 
         {/* 8.3 */}
         <h3
           id="structure-color-context"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           3. Color & background context
         </h3>
@@ -402,6 +538,7 @@ Core principles:
 
         <MotionMdFormatCodeDisplay
           label="Color context"
+          language="text"
           code={`## Color & Background Context
 
 \`\`\`
@@ -412,20 +549,20 @@ Text primary:         #1A1A1A   (near-black)
 Brand purple:         #7B61FF   (primary CTA, highlights)
 
 Motion reads on white. Shadows are the primary depth signal, not borders or
-color fills. Everything is gentle — no jarring contrast shifts.
+color fills. Everything is gentle - no jarring contrast shifts.
 \`\`\``}
         />
 
         {/* 8.4 */}
         <h3
           id="structure-duration"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           4. Duration scale
         </h3>
         <p className="text-base leading-relaxed text-foreground/85">
-          Every timing value in the system gets a name and a role. Durations
-          are expressed as CSS custom properties (
+          Every timing value in the system gets a name and a role. Durations are
+          expressed as CSS custom properties (
           <code className="text-sm">--duration-*</code>) with comments
           explaining where each one applies. The naming is semantic -{" "}
           <code className="text-sm">fast</code>,{" "}
@@ -451,7 +588,7 @@ color fills. Everything is gentle — no jarring contrast shifts.
         {/* 8.5 */}
         <h3
           id="structure-easing"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           5. Easing scale
         </h3>
@@ -467,27 +604,27 @@ color fills. Everything is gentle — no jarring contrast shifts.
           code={`## Easing Scale
 
 \`\`\`css
-/* Primary — smooth deceleration, used everywhere */
+/* Primary - smooth deceleration, used everywhere */
 --ease-out:         cubic-bezier(0.25, 1, 0.5, 1);
 
-/* Snappy — quick interactions, hover states */
+/* Snappy - quick interactions, hover states */
 --ease-out-sharp:   cubic-bezier(0.16, 1, 0.3, 1);
 
-/* In-out — tab switches, carousel slides */
+/* In-out - tab switches, carousel slides */
 --ease-in-out:      cubic-bezier(0.4, 0, 0.2, 1);
 
-/* Gentle bounce — CTA buttons, pill tags */
+/* Gentle bounce - CTA buttons, pill tags */
 --ease-out-back:    cubic-bezier(0.34, 1.2, 0.64, 1);
 \`\`\`
 
 **Primary easing is always --ease-out.** This matches the feeling of
-polished product motion — smooth deceleration, no overshoot.`}
+polished product motion - smooth deceleration, no overshoot.`}
         />
 
         {/* 8.6 */}
         <h3
           id="structure-keyframes"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           6. Core keyframes
         </h3>
@@ -531,13 +668,14 @@ polished product motion — smooth deceleration, no overshoot.`}
     transform: scale(1);
   }
 }`}
-              className="h-8 px-2 text-xs"
-            >
-              Copy keyframes
-            </CopyButton>
+              // className="h-8 px-2 text-xs"
+                variant="outline"
+                      size="icon-sm"
+            />
           </div>
-          <pre className="overflow-x-auto p-4 text-[13px] leading-relaxed">
-            <code className="font-mono text-foreground">{`@keyframes fadeUp {
+          <CodeBlock className="border-0 rounded-t-none">
+            <CodeBlockCode
+              code={`@keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(12px);
@@ -562,14 +700,16 @@ polished product motion — smooth deceleration, no overshoot.`}
     opacity: 1;
     transform: scale(1);
   }
-}`}</code>
-          </pre>
+}`}
+              language="css"
+            />
+          </CodeBlock>
         </div>
 
         {/* 8.7 */}
         <h3
           id="structure-components"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           7. Component-level motion
         </h3>
@@ -612,7 +752,7 @@ polished product motion — smooth deceleration, no overshoot.`}
         {/* 8.8 */}
         <h3
           id="structure-scroll"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           8. Scroll-triggered section reveals
         </h3>
@@ -665,7 +805,7 @@ const observer = new IntersectionObserver(
         {/* 8.9 */}
         <h3
           id="structure-framer"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           9. Framer Motion / React equivalent
         </h3>
@@ -681,7 +821,7 @@ const observer = new IntersectionObserver(
           code={`## Framer Motion Equivalent (if using React)
 
 \`\`\`js
-// Primary spring — tight, no bounce
+// Primary spring - tight, no bounce
 const springConfig = {
   type: "spring",
   stiffness: 400,
@@ -715,15 +855,15 @@ const staggerContainer = {
         {/* 8.10 */}
         <h3
           id="structure-cheatsheet"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           10. Summary cheat sheet
         </h3>
         <p className="text-base leading-relaxed text-foreground/85">
           Every MOTION.md ends with a markdown table that summarizes every
           documented animation in a single view: element, duration, easing
-          curve, and transform. This is the single-page reference the agent (or
-          a human) can scan in seconds.
+          curve, and transform. This is the single-page reference the agent - or
+          a human - can scan in seconds.
         </p>
 
         <MotionMdFormatCodeDisplay
@@ -740,23 +880,21 @@ const staggerContainer = {
 | Section reveal       | 500ms     | cubic-bezier(0.16, 1, 0.3, 1) | translateY(16px→0)     |
 | Tab panel enter      | 250ms     | cubic-bezier(0.16, 1, 0.3, 1) | translateY(12px→0)     |
 | Screenshot           | 600ms     | cubic-bezier(0.16, 1, 0.3, 1) | translateY(20px)+scale |
-| Stagger delay step   | +80ms     | —                             | per child              |`}
+| Stagger delay step   | +80ms     | -                             | per child              |`}
         />
 
         {/* 8.11 */}
         <h3
           id="structure-reduced-motion"
-          className="mt-8 !mb-1 scroll-mt-24 lg:text-lg text-base font-medium tracking-tight text-foreground"
+          className="mt-8 !mb-1 scroll-mt-24 text-base font-medium tracking-tight text-foreground lg:text-lg"
         >
           11. Reduced motion
         </h3>
         <p className="text-base leading-relaxed text-foreground/85">
           Every MOTION.md includes the mandatory{" "}
-          <code className="text-sm">
-            prefers-reduced-motion
-          </code>{" "}
-          block. Motion accessibility is not optional - and the agent needs to
-          know the pattern exists.
+          <code className="text-sm">prefers-reduced-motion</code> block. Motion
+          accessibility is not optional - and the agent needs to know the
+          pattern exists.
         </p>
 
         <MotionMdFormatCodeDisplay
@@ -785,38 +923,38 @@ const staggerContainer = {
               Terminal
             </span>
             <CopyButton
-              text="npx motion-kit@latest add figma"
-              className="h-8 px-2 text-xs"
-            >
-              Copy
-            </CopyButton>
+              text="npx motion-md@latest add figma"
+              variant="outline"
+              size="icon-sm"
+            />
           </div>
-          <pre className="overflow-x-auto p-4 text-[13px] leading-relaxed">
-            <code className="font-mono text-foreground">
-              npx motion-kit@latest add figma
-            </code>
-          </pre>
+          <CodeBlock className="border-0 rounded-t-none">
+            <CodeBlockCode
+              code="npx motion-md@latest add figma"
+              language="bash"
+            />
+          </CodeBlock>
         </div>
 
         <ol className="space-y-2 text-base leading-relaxed text-foreground/85">
           <li>
-            <span className="font-semibold text-foreground">Browse</span> the
+            <span className="font-medium text-foreground">Browse</span> the
             collection and find a motion system that matches the brand energy
             you want.
           </li>
           <li>
-            <span className="font-semibold text-foreground">Copy</span> the
+            <span className="font-medium text-foreground">Copy</span> the
             MOTION.md content (or use the CLI) and drop it into your project
             root.
           </li>
           <li>
-            <span className="font-semibold text-foreground">
+            <span className="font-medium text-foreground">
               Tell your agent
             </span>
             : &ldquo;Read MOTION.md before writing any animation code.&rdquo;
           </li>
           <li>
-            <span className="font-semibold text-foreground">
+            <span className="font-medium text-foreground">
               That&rsquo;s it.
             </span>{" "}
             Every animation the agent generates will match the brand&rsquo;s

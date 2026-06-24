@@ -43,7 +43,7 @@ export default async function MotionMdPage({
   const content = await getMotionMdContent(motion.motionDir)
 
   return (
-    <div className="mx-auto min-h-screen max-w-7xl overflow-hidden border-x px-4 lg:overflow-visible">
+    <div className="mx-auto min-h-screen max-w-7xl border-x px-4">
       <Header />
 
       <div className="relative">

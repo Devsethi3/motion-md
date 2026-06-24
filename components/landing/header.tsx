@@ -67,17 +67,25 @@ export const Header = memo(() => {
         </div>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <RaisedButton variant={"default"} color="#414141" size="sm">
-            <Link href="/bookmarks" className="flex items-center gap-1">
+          <Link
+            href="https://github.com/Devsethi3/motion-md"
+            target="_blank"
+          >
+          <RaisedButton
+            variant={"default"}
+            color="#414141"
+            size="sm"
+            className="flex items-center gap-1"
+          >
               <HugeiconsIcon
                 icon={GithubIcon}
                 className="mr-1.5 size-4 fill-accent dark:fill-foreground"
               />
               <span className="">GitHub</span>
-            </Link>
           </RaisedButton>
+            </Link>
           <RaisedButton variant={"default"} size="sm">
-            <Link href="/bookmarks" className="flex items-center gap-1 mb-0.5">
+            <Link href="/bookmarks" className="mb-0.5 flex items-center gap-1">
               <HugeiconsIcon
                 icon={LayerIcon}
                 className="mr-1.5 size-4 fill-accent dark:fill-foreground"

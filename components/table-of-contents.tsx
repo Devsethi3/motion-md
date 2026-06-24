@@ -45,11 +45,11 @@ const tableOfContentsStyles = {
   itemActive: "text-foreground",
   itemTrail: "text-foreground",
   itemIdle: "text-muted-foreground/60 hover:text-muted-foreground",
-  mobileHeader: "border-b bg-background/90 backdrop-blur-md transition-all",
-  mobileHeaderOpen: "shadow-lg border-border",
+  mobileHeader: "border-b bg-background/95 backdrop-blur-lg transition-all",
+  mobileHeaderOpen: "shadow-sm border-border rounded-xl border",
   mobileButton:
     "flex h-12 w-full items-center gap-2.5 px-4 py-2.5 text-start text-sm font-normal text-muted-foreground [&_svg]:size-4",
-  mobileScrollArea: "max-h-[60dvh] px-4 pb-4",
+  mobileScrollArea: "max-h-[50dvh] overflow-y-auto px-4 pb-4",
   mobileList: "pt-2 [&_a]:w-full [&_a]:py-2.5",
 }
 
@@ -693,9 +693,12 @@ function TableOfContentsMobileContent({
       <CollapsibleContent data-toc-mobile-content="">
         <div>
           <ScrollArea className={tableOfContentsStyles.mobileScrollArea}>
-            <TableOfContentsList
-              className={tableOfContentsStyles.mobileList}
-            />
+            {open && (
+              <TableOfContentsList
+                key="toc-mobile-list"
+                className={tableOfContentsStyles.mobileList}
+              />
+            )}
           </ScrollArea>
         </div>
       </CollapsibleContent>

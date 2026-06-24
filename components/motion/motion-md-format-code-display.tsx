@@ -1,17 +1,20 @@
 "use client"
 
 import { CopyButton } from "@/components/copy-button"
+import { CodeBlock, CodeBlockCode } from "@/components/ui/code-block"
 
 type CodeDisplayProps = {
   label: string
   code: string
   copyText?: string
+  language?: string
 }
 
 export function MotionMdFormatCodeDisplay({
   label,
   code,
   copyText,
+  language = "plaintext",
 }: CodeDisplayProps) {
   return (
     <div className="not-prose my-4 overflow-hidden rounded-xl border bg-card">
@@ -20,17 +23,12 @@ export function MotionMdFormatCodeDisplay({
           {label}
         </span>
         {copyText ? (
-          <CopyButton
-            text={copyText}
-            className="h-8 px-2 text-xs"
-          >
-            Copy
-          </CopyButton>
+          <CopyButton text={copyText} className="" variant='outline' size='icon-sm' />
         ) : null}
       </div>
-      <pre className="overflow-x-auto p-4 text-[13px] leading-relaxed">
-        <code className="font-mono text-foreground">{code}</code>
-      </pre>
+      <CodeBlock className="border-0 rounded-t-none">
+        <CodeBlockCode code={code} language={language} />
+      </CodeBlock>
     </div>
   )
 }

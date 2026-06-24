@@ -53,7 +53,7 @@ export function MotionMdInfoSection({ motion }: { motion: Motion }) {
               <div className="relative p-4">
                 <CodeBlock className="">
                   <CodeBlockCode
-                    code="npx getdesign@latest add figma"
+                    code="npx motion-md@latest add figma"
                     language="bash"
                   />
                 </CodeBlock>

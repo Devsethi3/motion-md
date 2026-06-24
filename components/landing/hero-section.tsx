@@ -4,6 +4,7 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { motion } from "motion/react"
 import { useTheme } from "next-themes"
 import Image from "next/image"
+import { InlineTool } from "../ui/inline-tool"
 
 const HeroSection = () => {
   const { resolvedTheme } = useTheme()
@@ -114,29 +115,6 @@ const HeroSection = () => {
     </div>
   )
 }
-
-const InlineTool = ({
-  src,
-  alt,
-  size,
-  label,
-}: {
-  src: string
-  alt: string
-  size: number
-  label: string
-}) => (
-  <span className="inline-flex items-center gap-1 align-middle">
-    <Image
-      src={src}
-      alt={alt}
-      width={size}
-      height={size}
-      className="shrink-0"
-    />
-    <span>{label}</span>
-  </span>
-)
 
 export default HeroSection
   

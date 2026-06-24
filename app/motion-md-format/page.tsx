@@ -29,30 +29,22 @@ const tocItems: TocItem[] = [
   { id: "what-motion-md-is-not", title: "What MOTION.md is not", depth: 2 },
   { id: "mental-model", title: "Mental model", depth: 2 },
   { id: "structure", title: "The structure of a MOTION.md file", depth: 2 },
-  {
-    id: "structure-title-attribution",
-    title: "1. Title and attribution",
-    depth: 3,
-  },
-  { id: "structure-philosophy", title: "2. Design philosophy", depth: 3 },
+  { id: "structure-philosophy", title: "1. Design philosophy", depth: 3 },
   {
     id: "structure-color-context",
-    title: "3. Color & background context",
+    title: "2. Color & background context",
     depth: 3,
   },
-  { id: "structure-duration", title: "4. Duration scale", depth: 3 },
-  { id: "structure-easing", title: "5. Easing scale", depth: 3 },
-  { id: "structure-keyframes", title: "6. Core keyframes", depth: 3 },
-  { id: "structure-components", title: "7. Component-level motion", depth: 3 },
-  { id: "structure-scroll", title: "8. Scroll-triggered reveals", depth: 3 },
+  { id: "structure-duration", title: "3. Duration scale", depth: 3 },
+  { id: "structure-easing", title: "4. Easing scale", depth: 3 },
+  { id: "structure-keyframes", title: "5. Core keyframes", depth: 3 },
+  { id: "structure-components", title: "6. Component-level motion", depth: 3 },
+  { id: "structure-scroll", title: "7. Scroll-triggered reveals", depth: 3 },
   {
     id: "structure-framer",
-    title: "9. Framer Motion / React equivalent",
+    title: "8. Framer Motion / React equivalent",
     depth: 3,
   },
-  { id: "structure-cheatsheet", title: "10. Summary cheat sheet", depth: 3 },
-  { id: "structure-reduced-motion", title: "11. Reduced motion", depth: 3 },
-  { id: "quick-start", title: "Quick start", depth: 2 },
 ]
 
 const tocIds = tocItems.map((item) => item.id)
@@ -61,7 +53,7 @@ export default function MotionMdFormatPage() {
   const activeId = useScrollSpy(tocIds, { rootMargin: "0px 0px -80% 0px" })
 
   return (
-    <div className="mx-auto min-h-screen max-w-7xl overflow-hidden border-x px-4 lg:overflow-visible">
+    <div className="mx-auto min-h-screen max-w-7xl border-x px-4">
       <Header />
 
       <div className="relative">
