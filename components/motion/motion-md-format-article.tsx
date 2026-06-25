@@ -9,6 +9,13 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { ClipboardIcon } from "@hugeicons/core-free-icons"
 import { Source, SourceContent, SourceTrigger } from "../ui/source"
 import { CodeBlock, CodeBlockCode } from "@/components/ui/code-block"
+import { EasingCurveVisualizer } from "./easing-curve-visualizer"
+import { DurationScaleTimeline } from "./duration-scale-timeline"
+import { ColorContextSwatches } from "./color-context-swatches"
+import { KeyframesLiveDemo } from "./keyframes-live-demo"
+import { ComponentMotionCards } from "./component-motion-cards"
+import { SpringVisualizer } from "./spring-visualizer"
+import { CheatSheetTable } from "./cheat-sheet-table"
 
 export function MotionMdFormatArticle() {
   const { resolvedTheme } = useTheme()
@@ -18,70 +25,21 @@ export function MotionMdFormatArticle() {
       <MotionMdFormatSection id="what-is-motion-md" title="What is MOTION.md?">
         <p className="text-base leading-relaxed text-foreground/85">
           The MOTION.md concept is a plain markdown file that describes a
-          brand&rsquo;s animation patterns - durations, easings, keyframes,
+          brand&rsquo;s animation patterns — durations, easings, keyframes,
           hover states, entrance/exit sequences, scroll reveals, and transitions
-          - and hands it to an AI agent so it can generate consistent motion. No
+          — and hands it to an AI agent so it can generate consistent motion. No
           Framer Motion plugin. No JSON schema. No Storybook export. Just a
           markdown file the agent reads before it writes a single line of
           animation code.
         </p>
-
-        <p className="text-base leading-relaxed text-foreground/85">
-          Motion systems from leading product websites. Open any style for
-          animations, transitions and a{" "}
-          <span className="inline-flex items-center gap-0.5 align-middle">
-            <HugeiconsIcon
-              icon={ClipboardIcon}
-              className="size-4 shrink-0 fill-accent dark:fill-accent-foreground/10"
-            />
-            <span className="font-medium text-foreground underline">
-              MOTION.md
-            </span>
-          </span>{" "}
-          you can drop straight into{" "}
-          <InlineTool
-            src={
-              resolvedTheme === "dark"
-                ? "/cursor_dark.svg"
-                : "/cursor_light.svg"
-            }
-            alt="Cursor"
-            size={12}
-            label="Cursor"
-          />
-          {", "}
-          <InlineTool
-            src="/claude.svg"
-            alt="Claude"
-            size={14}
-            label="Claude Code"
-          />
-          {", "}
-          <InlineTool
-            src={
-              resolvedTheme === "dark" ? "/codex_dark.svg" : "/codex_light.svg"
-            }
-            alt="Codex"
-            size={14}
-            label="Codex"
-          />
-          {", "}
-          <InlineTool
-            src="/lovable.svg"
-            alt="Lovable"
-            size={12}
-            label="Lovable"
-          />
-          {", v0, or Windsurf."}
-        </p>
-
-        <p className="text-base leading-relaxed text-foreground/85">
-          We built motion-md on top of that idea. This site is the web app
-          version - you can browse, preview, and copy any MOTION.md file without
+    
+        <p className="text-base mt-2 leading-relaxed text-foreground/85">
+         This site is the web app
+          version — you can browse, preview, and copy any MOTION.md file without
           cloning a repository.
         </p>
 
-        <p className="text-base leading-relaxed text-foreground/85">
+        <p className="text-base leading-relaxed text-foreground/85 mt-2">
           Every MOTION.md in this collection is reverse-engineered from publicly
           visible patterns on production websites like{" "}
           <Source href="https://www.figma.com">
@@ -108,7 +66,7 @@ export function MotionMdFormatArticle() {
             />
           </Source>
           , and dozens more. These are not official design systems from the
-          listed companies - they are curated starting points inspired by
+          listed companies — they are curated starting points inspired by
           observable animation patterns so AI agents can replicate the{" "}
           <em>feel</em> of a brand, not just its colors.
         </p>
@@ -208,7 +166,7 @@ export function MotionMdFormatArticle() {
               Design philosophy
             </span>{" "}
             tells the agent what the brand&rsquo;s motion feels like and, more
-            importantly, why. Sentences like &ldquo;Restraint is the feature -
+            importantly, why. Sentences like &ldquo;Restraint is the feature —
             durations are short, transforms are small.&rdquo; The agent gets
             intent, not just instructions.
           </li>
@@ -224,7 +182,7 @@ export function MotionMdFormatArticle() {
           </li>
           <li>
             <span className="font-semibold text-foreground">Easing scale</span>{" "}
-            defines every curve - primary ease-out, sharp entrances, gentle
+            defines every curve — primary ease-out, sharp entrances, gentle
             bounce, linear progress. Each one has a use case attached, not just
             a bezier value.
           </li>
@@ -232,7 +190,7 @@ export function MotionMdFormatArticle() {
             <span className="font-semibold text-foreground">
               Core keyframes
             </span>{" "}
-            - the actual <code className="text-sm">@keyframes</code> blocks for
+            — the actual <code className="text-sm">@keyframes</code> blocks for
             entrances (fade up, fade in, scale in, slide in) and exits (fade
             out, slide out). Ready to copy-paste into CSS-in-JS or
             tailwind-animate.
@@ -241,7 +199,7 @@ export function MotionMdFormatArticle() {
             <span className="font-semibold text-foreground">
               Component-level motion
             </span>{" "}
-            - hover states, active states, enter/exit sequences for buttons,
+            — hover states, active states, enter/exit sequences for buttons,
             cards, nav elements, modals, tabs, carousels. Every interaction
             documented with its duration, easing, and transform.
           </li>
@@ -249,14 +207,14 @@ export function MotionMdFormatArticle() {
             <span className="font-semibold text-foreground">
               Scroll-triggered reveals
             </span>{" "}
-            - IntersectionObserver thresholds, stagger delays, transition
+            — IntersectionObserver thresholds, stagger delays, transition
             configs for sections entering the viewport.
           </li>
           <li>
             <span className="font-semibold text-foreground">
               Reduced motion
             </span>{" "}
-            - the mandatory{" "}
+            — the mandatory{" "}
             <code className="text-sm">prefers-reduced-motion</code> media query
             block, because motion accessibility is not optional.
           </li>
@@ -264,7 +222,7 @@ export function MotionMdFormatArticle() {
             <span className="font-semibold text-foreground">
               Framer Motion / React equivalents
             </span>{" "}
-            - spring configs, motion variants, AnimatePresence wrappers for
+            — spring configs, motion variants, AnimatePresence wrappers for
             teams using React animation libraries.
           </li>
         </ul>
@@ -448,8 +406,8 @@ export function MotionMdFormatArticle() {
       >
         <p className="text-base leading-relaxed text-foreground/85">
           A MOTION.md file has a consistent, predictable structure. Every file
-          in the collection follows the same skeleton so that - whether you
-          reach for Figma, Linear, or Railway - you always know where to find
+          in the collection follows the same skeleton so that — whether you
+          reach for Figma, Linear, or Railway — you always know where to find
           the duration scale, the easing curves, or the button hover states.
           There are 11 standard pieces, walked through below in the order they
           appear in the file. Each one is a layer the agent reaches for when
@@ -465,8 +423,8 @@ export function MotionMdFormatArticle() {
         </h3>
         <p className="text-base leading-relaxed text-foreground/85">
           The very top of the file is a markdown heading with the brand name,
-          followed by a blockquote attribution that tells the reader - and the
-          agent - exactly what this file is.
+          followed by a blockquote attribution that tells the reader — and the
+          agent — exactly what this file is.
         </p>
 
         <MotionMdFormatCodeDisplay
@@ -481,7 +439,7 @@ export function MotionMdFormatArticle() {
 
         <p className="text-base leading-relaxed text-foreground/85">
           The attribution block is what tells downstream tools what this file is
-          for. It&rsquo;s not metadata - it&rsquo;s context the agent reads
+          for. It&rsquo;s not metadata — it&rsquo;s context the agent reads
           before it writes a single line of animation code.
         </p>
 
@@ -493,7 +451,7 @@ export function MotionMdFormatArticle() {
           2. Design philosophy
         </h3>
         <p className="text-base leading-relaxed text-foreground/85">
-          This is the atmosphere statement - the brand&rsquo;s motion philosophy
+          This is the atmosphere statement — the brand&rsquo;s motion philosophy
           in plain English. What carries the voltage? What role does speed play?
           What does the timing communicate? It closes with a bullet list of core
           principles.
@@ -536,6 +494,9 @@ Core principles:
           against the brand&rsquo;s background.
         </p>
 
+        {/* REPLACED: Static code block → Color swatches */}
+        <ColorContextSwatches />
+
         <MotionMdFormatCodeDisplay
           label="Color context"
           language="text"
@@ -564,11 +525,14 @@ color fills. Everything is gentle - no jarring contrast shifts.
           Every timing value in the system gets a name and a role. Durations are
           expressed as CSS custom properties (
           <code className="text-sm">--duration-*</code>) with comments
-          explaining where each one applies. The naming is semantic -{" "}
+          explaining where each one applies. The naming is semantic —{" "}
           <code className="text-sm">fast</code>,{" "}
           <code className="text-sm">base</code>,{" "}
-          <code className="text-sm">slow</code> - not arbitrary numbers.
+          <code className="text-sm">slow</code> — not arbitrary numbers.
         </p>
+
+        {/* REPLACED: Static code block → Animated timeline */}
+        <DurationScaleTimeline />
 
         <MotionMdFormatCodeDisplay
           label="Duration scale"
@@ -598,6 +562,9 @@ color fills. Everything is gentle - no jarring contrast shifts.
           of the curve. This block documents every cubic-bezier with its role
           and a one-line explanation of when to use it.
         </p>
+
+        {/* REPLACED: Static code block → SVG visualizer with scroll-triggered animation */}
+        <EasingCurveVisualizer />
 
         <MotionMdFormatCodeDisplay
           label="Easing scale"
@@ -636,75 +603,8 @@ polished product motion - smooth deceleration, no overshoot.`}
           component-level animations reference.
         </p>
 
-        <div className="not-prose my-4 overflow-hidden rounded-xl border bg-card">
-          <div className="flex items-center justify-between border-b border-border bg-muted/40 px-4 py-2">
-            <span className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
-              Core keyframes
-            </span>
-            <CopyButton
-              text={`@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}`}
-              // className="h-8 px-2 text-xs"
-                variant="outline"
-                      size="icon-sm"
-            />
-          </div>
-          <CodeBlock className="border-0 rounded-t-none">
-            <CodeBlockCode
-              code={`@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}`}
-              language="css"
-            />
-          </CodeBlock>
-        </div>
+        {/* REPLACED: Static code block → Interactive live demo */}
+        <KeyframesLiveDemo />
 
         {/* 8.7 */}
         <h3
@@ -715,39 +615,13 @@ polished product motion - smooth deceleration, no overshoot.`}
         </h3>
         <p className="text-base leading-relaxed text-foreground/85">
           This is where the keyframes compose into real UI interactions. Each
-          component - buttons, navigation, cards, tabs, carousels, modals -
+          component — buttons, navigation, cards, tabs, carousels, modals —
           gets its own annotated section with the exact CSS transitions, hover
           states, active states, and enter/exit sequences.
         </p>
 
-        <MotionMdFormatCodeDisplay
-          label="Component motion - Buttons"
-          code={`## Buttons
-
-### Primary CTA
-\`\`\`css
-.btn-primary {
-  transition:
-    background  160ms var(--ease-out),
-    transform   100ms var(--ease-out),
-    box-shadow  160ms var(--ease-out);
-  background: #1A1A1A;
-  color: #FFFFFF;
-  border-radius: 8px;
-}
-
-.btn-primary:hover {
-  background: #000000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transform: translateY(-1px);
-}
-
-.btn-primary:active {
-  transform: scale(0.97) translateY(0);
-  transition-duration: 60ms;
-}
-\`\`\``}
-        />
+        {/* REPLACED: Static code block → Interactive hover/click demos */}
+        <ComponentMotionCards />
 
         {/* 8.8 */}
         <h3
@@ -816,6 +690,9 @@ const observer = new IntersectionObserver(
           wrappers.
         </p>
 
+        {/* REPLACED: Static code block → Interactive spring physics playground */}
+        <SpringVisualizer />
+
         <MotionMdFormatCodeDisplay
           label="Framer Motion equivalent"
           code={`## Framer Motion Equivalent (if using React)
@@ -862,9 +739,12 @@ const staggerContainer = {
         <p className="text-base leading-relaxed text-foreground/85">
           Every MOTION.md ends with a markdown table that summarizes every
           documented animation in a single view: element, duration, easing
-          curve, and transform. This is the single-page reference the agent - or
-          a human - can scan in seconds.
+          curve, and transform. This is the single-page reference the agent — or
+          a human — can scan in seconds.
         </p>
+
+        {/* REPLACED: Static code block → Animated table with row hover */}
+        <CheatSheetTable />
 
         <MotionMdFormatCodeDisplay
           label="Cheat sheet table"
@@ -893,7 +773,7 @@ const staggerContainer = {
         <p className="text-base leading-relaxed text-foreground/85">
           Every MOTION.md includes the mandatory{" "}
           <code className="text-sm">prefers-reduced-motion</code> block. Motion
-          accessibility is not optional - and the agent needs to know the
+          accessibility is not optional — and the agent needs to know the
           pattern exists.
         </p>
 
@@ -958,7 +838,7 @@ const staggerContainer = {
               That&rsquo;s it.
             </span>{" "}
             Every animation the agent generates will match the brand&rsquo;s
-            motion language - durations, easings, keyframes, interaction
+            motion language — durations, easings, keyframes, interaction
             patterns.
           </li>
         </ol>

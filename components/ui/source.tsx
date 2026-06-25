@@ -54,7 +54,7 @@ export function SourceTrigger({
 }: SourceTriggerProps) {
   const { href, domain } = useSourceContext()
   const labelToShow = label ?? domain.replace("www.", "")
-
+ 
   return (
     <HoverCardTrigger asChild>
       <a
@@ -62,7 +62,7 @@ export function SourceTrigger({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          "bg-muted text-muted-foreground hover:bg-muted-foreground/30 hover:text-foreground inline-flex h-5 max-w-32 items-center gap-1 overflow-hidden rounded-full py-0 text-xs no-underline transition-colors duration-150",
+          "bg-muted text-muted-foreground hover:bg-muted-foreground/10 hover:text-foreground inline-flex h-5 max-w-32 items-center gap-1 overflow-hidden rounded-full py-0 text-xs no-underline transition-colors duration-150",
           showFavicon ? "pr-2 pl-1" : "px-1",
           className
         )}
